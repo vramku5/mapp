@@ -16,8 +16,13 @@
 		<servlet-api.version>2.5</servlet-api.version>
 	</properties>
 
+	<build>
+		<plugins>
+
+		</plugins>
+	</build>
 	<modules>
-		<module>../springmvc/springmvc</module>
-		<module>../springrest/springrest</module>
+		<module>../springmvc</module>
+		<module>../springrest</module>
 	</modules>
 </project>
