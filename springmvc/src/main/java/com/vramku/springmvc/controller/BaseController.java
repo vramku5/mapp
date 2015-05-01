@@ -1,4 +1,4 @@
-package com.vramku.controller;
+package com.vramku.springmvc.controller;
  
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
