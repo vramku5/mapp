@@ -5,13 +5,15 @@
 	<packaging>war</packaging>
 	<name>springrest Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 		<!-- Spring Core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -49,19 +51,136 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jpa</artifactId>
+			<version>${spring-jpa.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+
+	    <!-- Add typical dependencies for a web application (RV, trying this...)-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+			<version>${spring-boot.version}</version>
+        </dependency>
+    
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+			<version>${spring-boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+			<version>${spring-hateoas.version}</version>
+		</dependency>
+
+		<!-- Fixing transitive dependencies to latest version -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Fixing transitive dependencies to latest version -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Fixing transitive dependencies to latest version -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-mock</artifactId>
+			<version>${spring-mock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
 		<!-- jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+
+		<!-- Hibernate core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<!-- Mysql connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson-annotations.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>${hamcrest-all.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
+
 	<build>
 		<finalName>springrest</finalName>
 		<plugins>
@@ -100,14 +219,20 @@
 					<password>a</password>
 				</configuration>
 			</plugin>
-
+			
+			<!-- RV - trying this to fix junit spring boot issue -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
 		</plugins>
 	</build>
+
 	<parent>
 		<groupId>com.vramku</groupId>
 		<artifactId>mapp-pom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../mapp-pom</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 </project>
  
